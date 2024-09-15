@@ -1,0 +1,212 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     font-family: 'Poppins', sans-serif; 
+
+}
+
+ :root{
+     --themeColor: #e1f80e;         /* #45f3ff */
+     --themeColor2: #23242a;        /* #23242a */
+     --boxColor: #1c1c1c;           /* #1c1c1c */
+     --formColor: #28292d;          /* #28292d */
+     --textColor: #8f8f8f;          /* #8f8f8f */
+     --textColor2: #797777;
+    }
+
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: var(--themeColor2);
+} 
+
+ .box {
+    position: relative;
+    width: 380px;
+    height: 420px;
+    background: var(--boxColor);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.box::before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    background: linear-gradient(0deg, transparent, var(--themeColor), var(--themeColor));
+    width: 380px;
+    height: 420px;
+    top: -50%;
+    left: -50%;
+    animation: animate 6s linear infinite;
+    transform-origin: bottom right;
+}
+
+.box::after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    background: linear-gradient(0deg, transparent, var(--themeColor), var(--themeColor));
+    width: 380px;
+    height: 420px;
+    top: -50%;
+    left: -50%;
+    animation: animate 6s linear infinite;
+    transform-origin: bottom right;
+    animation-delay: -3s;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+form {
+    position: absolute;
+    inset: 2px;
+    background: var(--formColor);
+    z-index: 2;
+    padding: 50px 40px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+} 
+
+ h2 {
+    color: var(--themeColor);
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.inputBox {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+} 
+
+.inputBox input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    color: var(--themeColor2);
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+}
+.inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 20px 0px 10px;
+    pointer-events: none;
+    font-size:1em;
+    color: var(--textColor);
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+.inputBox input:focus ~ span, .inputBox input:valid ~ span{
+    color: var(--themeColor);
+    transform: translateX(0px) translateY(-34px);
+    font-size: 0.80em;             /* 0.75em */
+                                   /* newly added*/
+}
+.inputBox i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--themeColor);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+}
+.inputBox input:focus ~ i, .inputBox input:valid ~ i{
+    height: 44px;
+}
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+.links a{
+    margin: 10px 0px;
+    font-weight: 500;
+    font-size: 0.75em;
+    color: var(--textColor2);
+    text-decoration: rgb(252, 0, 0);
+}
+
+.links a:hover, .links a:nth-child(2){
+    color: var(--themeColor);
+}
+
+.loginbtn{
+    position: absolute;
+    left: 40px;
+    z-index: 11;
+    bottom: 40px;
+    border: 2px solid black;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: 11px 25px;
+    background: var(--themeColor);
+    color:var(--formColor);
+    cursor:pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    width:100px;
+    height: 50px;
+    margin-top: 10px;
+}
+input .loginbtn :active{
+ opacity: 0.8;
+}
+
+div.alert {
+    margin: 10px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 3px 20px;
+    width: 300px;
+
+}
+.alert span{
+    color: hsl(0, 100%, 52%);
+
+    font-weight: 400;
+    font-size: 0.9em;
+}
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+.shake {
+    animation: shake 0.5s linear infinite; /* Change animation duration, timing function, and repetitions */
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(-5px); }
+  }
